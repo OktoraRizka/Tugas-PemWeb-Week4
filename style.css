@@ -1,0 +1,198 @@
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-decoration: none;
+    list-style: none;
+    scrollbar-width: none;
+}
+
+body { 
+    background: #fff; 
+    color: #333; 
+    line-height: 1.6; 
+}
+
+header {
+    position: sticky; 
+    top: 0;
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center;
+    padding: 15px 7%;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    z-index: 1000;
+}
+
+header .logo { 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    color: #3e2723; 
+}
+
+header .navbar a { 
+    margin-left: 20px; 
+    color: #666; 
+    font-size: 1rem; 
+}
+header .navbar a:hover { 
+    color: #8d6e63; 
+    text-decoration: underline;
+}
+
+.home {
+    height: 80vh;
+    display: flex; align-items: center;
+    padding: 0 7%;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('images/home-bg.jpg') center/cover;
+    color: #fff;
+}
+
+.home .content { 
+    max-width: 600px; 
+}
+
+.home .content h3 { 
+    font-size: 3rem; 
+    text-transform: uppercase; 
+}
+
+.home .content span { 
+    font-size: 1.5rem; 
+    display: block; 
+    margin: 10px 0; 
+}
+
+.btn, .btn-order {
+    display: inline-block;
+    background: #3e2723;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+}
+
+.btn:hover, .btn-order:hover{
+    background: #fff;
+    color: #3e2723;
+    
+}
+
+.foto-kopi { 
+    padding: 60px 7%; 
+    text-align: center; 
+    background: #f4f1ee; 
+}
+
+.jenis-kopi { 
+    display: flex; 
+    justify-content: center; 
+    gap: 15px; 
+    margin-bottom: 30px; 
+}
+
+.kopi-img { 
+    width: 30%; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+}
+
+table {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse; 
+    background-color: #fff;
+    font-size: 0.9rem;
+}
+
+caption {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3e2723;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+thead {
+    background-color: #3e2723;
+    color: #fff;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.kopi-footer { 
+    background: #3e2723; 
+    color: #ddd; 
+    padding: 40px 7% 20px; 
+}
+
+.footer-container { 
+    display: flex; 
+    flex-wrap: wrap; 
+    justify-content: space-between; 
+    gap: 30px;
+}
+
+.footer-section { 
+    flex: 1; 
+    min-width: 200px; 
+}
+
+.footer-bottom { 
+    text-align: center; 
+    margin-top: 30px; 
+    padding-top: 20px; 
+    border-top: 1px solid #555; 
+    font-size: 0.8rem; 
+}
+
+/* Order  */
+
+.order-container { 
+    min-height: 100vh; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    background: #f4f1ee; 
+}
+
+.order-card { 
+    background: #fff; 
+    padding: 30px; 
+    width: 100%; 
+    max-width: 400px; 
+    border-radius: 8px; 
+}
+
+.form-group { 
+    margin-bottom: 15px;
+    text-align: left; 
+}
+
+.form-group label { 
+    display: block; 
+    font-size: 0.8rem; 
+    margin-bottom: 5px; 
+    color: #777; 
+}
+
+.form-group input:focus, .form-group textarea:focus { 
+    background-color: #f4f1ee;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 4px;
+}
