@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Order - Le Coffe</title>
-    <link rel="stylesheet" href="style.css"> </head>
+    <link rel="stylesheet" href="../Style/style.css"> 
+</head>
 <body>
 
 <section class="order-container">
@@ -15,22 +16,32 @@
             <div class="form-group">
                 <label for="nama">Nama Lengkap</label>
                 <input type="text" id="nama" name="nama" placeholder="Masukan Nama Anda" required>
+                <label id="namaError">.</label>
             </div>
-
+            
             <div class="form-group">
-                <label for="hp">Nomor WhatsApp</label>
-                <input type="tel" id="hp" name="hp" placeholder="Masukkan No HP Anda" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Masukkan Email Anda" required>
+                <label id="emailError">.</label>
             </div>
-
+            
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Masukkan Password Anda" required>
+                <label id="passwordHPError">.</label>
+            </div>
+            
             <div class="form-group">
                 <label for="alamat">Alamat Pengiriman</label>
                 <textarea id="alamat" name="alamat" rows="4" placeholder="Tulis Alamat Lengkap Anda" required></textarea>
+                <label id="alamatError">.</label>
             </div>
 
-            <button type="submit" class="btn-order">Pesan Sekarang</button>
-        </form>
+            <button id="tombolCek" type="submit" class="btn-order">Pesan Sekarang</button>        </form>
     </div>
 </section>
+
+<script src="../Js/javascript.js"></script>
 
 </body>
 </html>
