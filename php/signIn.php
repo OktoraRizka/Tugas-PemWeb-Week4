@@ -3,19 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Order - Le Coffe</title>
+    <title>Sign In - Le Coffe</title>
     <link rel="stylesheet" href="../Style/style.css"> 
+    <style>
+        h1 {
+            text-align: center; 
+        }
+    </style>
 </head>
 <body>
 
 <section class="order-container">
     <div class="order-card">
-        <h1>Place Your Order</h1>
+        <h1>Sign In</h1>
 
-        <form action="#" method="POST" class="order-form">
+        <form action="../index.php" method="POST" class="order-form">
             <div class="form-group">
-                <label for="nama">Nama Lengkap</label>
-                <input type="text" id="nama" name="nama" placeholder="Masukan Nama Anda" required>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Masukan Nama Anda" required>
                 <label id="namaError">.</label>
             </div>
             
@@ -37,11 +42,12 @@
                 <label id="alamatError">.</label>
             </div>
 
-            <button id="tombolCek" type="submit" class="btn-order">Pesan Sekarang</button>        </form>
+            <button type="submit" id="tombolCek" class="btn-order">Sign In</button>   
+        </form>
     </div>
 </section>
 
-<script src="../Js/javascript.js"></script>
+<script src="../Js/cekLogin.js"></script>
 
 </body>
 </html>

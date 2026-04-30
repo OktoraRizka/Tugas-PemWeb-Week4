@@ -1,3 +1,29 @@
+<?php
+include 'php/koneksi.php';
+
+$query = "SELECT * FROM coffe";
+$result = mysqli_query($conn, $query);
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST['username'];
+    $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
+    $email = $_POST['email'];
+    $alamat = $_POST['alamat'];
+
+    $sql = "INSERT INTO user (username, password, email, alamat, role) 
+            VALUES ('$username', '$password', '$email', '$alamat', 'pelanggan')";
+
+    if (mysqli_query($conn, $sql)) {
+    echo "<script>
+            alert('Akun anda berhasil didaftarkan');
+            window.location.href='index.php';
+            </script>";
+    } else {
+        echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +31,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Le Coffe.</title>
     <link rel="stylesheet" href="Style/style.css">
+    <style>
+        header .navbar a#btnLogin {
+    background-color: #3e2723; 
+    color: #ffffff;          
+    padding: 8px 20px;       
+    border-radius: 5px;                   
+    display: inline-block;               
+    margin-left: 20px;
+    font-weight: bold;
+    text-decoration: none;    
+    transition: 0.3s;
+    }
+
+    /* Efek Hover */
+    header .navbar a#btnLogin:hover {
+        background-color: #5d4037; 
+        color: #ffffff;
+        text-decoration: none;   
+    }
+    </style>
 </head>
 <body id="top">
 
@@ -16,6 +62,7 @@
         <a href="#foto-kopi">about</a>
         <a href="#menu">Katalog</a> 
         <a href="#contact">contact</a>
+        <a href="php/Login.php" id="btnLogin">Login</a>
     </nav>
 
 </header>
@@ -26,7 +73,7 @@
         <h3>freshly brewed</h3>
         <span>start your day with a coffee</span>
         <p>Nikmati perpaduan biji kopi pilihan dengan suasana yang menenangkan. Kami menyajikan kebahagiaan dalam setiap cangkir untuk menemani produktivitas Anda.</p>
-        <a href="html/order.html" class="btn">ORDER NOW</a>
+        <a href="php/order.php" class="btn">ORDER NOW</a>
     </div>
 </section>
 
@@ -55,24 +102,21 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>Arabika Gayo</td>
-            <td>500 gram</td>
-            <td>Rp 165.000</td>
-            <td>Premium Quality</td>
-        </tr>
-        <tr>
-            <td>Arabika Toraja</td>
-            <td>500 gram</td>
-            <td>Rp 175.000</td>
-            <td>Full Body & Earthy</td>
-        </tr>
-        <tr>
-            <td>Robusta Temanggung</td>
-            <td>500 gram</td>
-            <td>Rp 145.000</td>
-            <td>Fruity (Citrus)</td>
-        </tr>
+       <?php 
+            if (mysqli_num_rows($result) > 0) {
+            while($row = mysqli_fetch_assoc($result)) {
+                echo "<tr>";
+                echo "<td>" . $row['jenis'] . "</td>";
+                echo "<td>" . $row['satuan'] . "</td>";
+                // Mengformat angka harga agar rapi (Rp 165.000)
+                echo "<td>Rp " . number_format($row['harga'], 0, ',', '.') . "</td>";
+                echo "<td>" . $row['keterangan'] . "</td>";
+                echo "</tr>";
+            }
+        } else {
+            echo "<tr><td colspan='4' style='text-align:center;'>Belum ada data kopi.</td></tr>";
+        }
+       ?>
     </tbody>
 </table>
 
